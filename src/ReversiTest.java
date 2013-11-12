@@ -31,4 +31,31 @@ public class ReversiTest {
 		Reversi jeux = new Reversi();
 		assertEquals(output, jeux.printLegalMoves(input));
 	}
+	
+	@Test
+	public void giveWhiteLegalMovesAtBeginning(){
+		String input = "" +
+				"........\n"+
+				"........\n"+
+				"........\n"+
+				"...BW...\n"+
+				"...WB...\n"+
+				"........\n"+
+				"........\n"+
+				"........\n"+
+				"W";
+		
+		String output = "" +
+				"........\n"+
+				"........\n"+
+				"...0....\n"+
+				"..0BW...\n"+
+				"...WB0..\n"+
+				"....0...\n"+
+				"........\n"+
+				"........\n"+
+				"W";
+		Reversi jeux = new Reversi();
+		assertEquals(output, jeux.printLegalMoves(input));
+	}
 }
