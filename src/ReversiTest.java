@@ -5,7 +5,7 @@ import org.junit.Test;
 
 public class ReversiTest {
 
-	@Test
+	/*@Test
 	public void giveBlackLegalMovesAtBeginning(){
 		String input = "" +
 				"........\n"+
@@ -57,5 +57,40 @@ public class ReversiTest {
 				"W";
 		Reversi jeux = new Reversi();
 		assertEquals(output, jeux.printLegalMoves(input));
-	}
+	}*/
+	
+	@Test
+	public void giveBlackLegalMovesAfterBeginning(){
+		String input = "" +
+				"........\n"+
+				"........\n"+
+				"B";
+				
+		String output = "" +
+				"........\n"+
+				"........\n"+
+				"B";	
+				
+				Reversi jeux = new Reversi();
+				assertEquals(output, jeux.printLegalMoves(input));
+	
+}
+	
+	@Test
+	public void giveWhitelegalMovesAfterFirstPlay(){
+	
+	String input = "" +
+			"..WB....\n"+
+			"........\n"+
+			"W";
+	
+			
+	String output = "" +
+			"..WB0...\n"+
+			"........\n"+
+			"W";	
+			
+			Reversi jeux = new Reversi();
+			assertEquals(output, jeux.printLegalMoves(input));
+			}
 }
