@@ -34,7 +34,7 @@ public class Reversi {
 				"B";
 		
 		if(isTurnForWhite(input)){
-			output=input.replace("WB.","WBW");
+			output  = input.replaceAll("WB\\.","WB0");
 			
 			
 		}
