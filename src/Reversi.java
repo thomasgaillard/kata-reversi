@@ -28,15 +28,12 @@ public class Reversi {
 					"W";
 					
 */		
-		String output =""+
-				"........\n"+
-				"........\n"+
-				"B";
-		
+
+		String output  = input.replaceAll("BW\\.","BW0");
+		output  = output.replaceAll("\\.WB","0WB");
 		if(isTurnForWhite(input)){
 			output  = input.replaceAll("WB\\.","WB0");
-			
-			
+			output  = output.replaceAll("\\.BW","0BW");		
 		}
 			
 		return output;
