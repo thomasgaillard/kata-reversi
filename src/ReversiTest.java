@@ -3,7 +3,6 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 import java.util.Arrays;
 import java.util.Collection;
-
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameter;
@@ -15,7 +14,6 @@ public class ReversiTest {
 		public static Collection<Object[]> data() {
 			return Arrays.asList(new Object[][] {
 //					{
-//						"" +
 //						"........\n"+
 //						"........\n"+
 //						"........\n"+
@@ -26,7 +24,6 @@ public class ReversiTest {
 //						"........\n"+
 //						"B",
 //
-//						"" +
 //						"........\n"+
 //						"........\n"+
 //						"....0...\n"+
@@ -38,7 +35,6 @@ public class ReversiTest {
 //						"B"
 //					},
 //					{  
-//						"" +
 //						"........\n"+
 //						"........\n"+
 //						"........\n"+
@@ -49,7 +45,6 @@ public class ReversiTest {
 //						"........\n"+
 //						"W",
 //
-//						"" +
 //						"........\n"+
 //						"........\n"+
 //						"...0....\n"+
@@ -87,6 +82,17 @@ public class ReversiTest {
 					{
 						"..WWBB..\nB",
 						".0WWBB..\nB"
+					},
+					{
+						"BBBBWBBB\n"+
+						"....B...\n"+
+						"........\n"+
+						"W",
+						
+						"BBBBWBBB\n"+
+						"....B...\n"+
+						"....0...\n"+
+						"W"
 					}
 		    	});
 	    }
