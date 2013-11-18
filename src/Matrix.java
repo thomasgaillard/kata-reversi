@@ -14,11 +14,19 @@ public class Matrix {
 	
 	public void transpose(){
 		String trans[] = new String[this.matrix[0].length()];
+		scourColumns(trans);
+		this.matrix = trans;
+	}
+
+	public void scourColumns(String[] trans) {
 		for(int x= 0; x < this.matrix[0].length(); x++){
 			trans[x] = "";
-			for(int y= 0; y < this.matrix.length; y++)
-				trans[x] += this.matrix[y].charAt(x) + "";
+			scourLines(trans, x);
 		}
-		this.matrix = trans;
+	}
+
+	public void scourLines(String[] trans, int x) {
+		for(int y= 0; y < this.matrix.length; y++)
+			trans[x] += this.matrix[y].charAt(x) + "";
 	}
 }
