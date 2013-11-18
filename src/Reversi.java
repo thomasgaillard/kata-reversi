@@ -16,13 +16,12 @@ public class Reversi {
 		Matrix m2 = new Matrix(verifiedColumnsTranspose);
 		m2.transpose();
 		//add the active player
-		return m2.toString()+"\n"+activePlayer;
+		return m2.toString() + "\n" + activePlayer;
 	}
 
 	private String verifyLegalMoves(String input, char activePlayer, char passivePlayer) {
 		String output  = input.replaceAll(activePlayer+"("+passivePlayer+"+)\\.", activePlayer+"$10");
-		output  = output.replaceAll("\\.("+passivePlayer+"+)"+activePlayer, "0$1"+activePlayer);
-		return output;
+		return output.replaceAll("\\.("+passivePlayer+"+)"+activePlayer, "0$1"+activePlayer);
 	}
 	
 	public char getTurn(String input){
