@@ -3,13 +3,20 @@ public class Reversi {
 	public String printLegalMoves(String input) {
 		char activePlayer = getTurn(input);
 		char passivePlayer = activePlayer == 'B' ? 'W' : 'B';
-		
+
+		//remove last char -> activePlayer
 		input = input.substring(0, input.length()-1);
+		//verify lines
 		String verifiedLines = verifyLegalMoves(input, activePlayer, passivePlayer);
- 		String columnsTranspose = array2str(transpose(str2array(verifiedLines)));
-		String verifiedColumnsTranspose = verifyLegalMoves(columnsTranspose, activePlayer, passivePlayer);
-		String verifiedColumns = array2str(transpose(str2array(verifiedColumnsTranspose)));
-		return verifiedColumns+"\n"+activePlayer;
+		//create matrix and transpose to verify columns
+		Matrix m = new Matrix(verifiedLines);
+		m.transpose();
+		String verifiedColumnsTranspose = verifyLegalMoves(m.toString(), activePlayer, passivePlayer);
+		//transpose again to get the original matrix
+		Matrix m2 = new Matrix(verifiedColumnsTranspose);
+		m2.transpose();
+		//add the active player
+		return m2.toString()+"\n"+activePlayer;
 	}
 
 	private String verifyLegalMoves(String input, char activePlayer, char passivePlayer) {
@@ -20,33 +27,5 @@ public class Reversi {
 	
 	public char getTurn(String input){
 		return input.charAt(input.length() - 1);
-	}
-	
-	public String[] str2array(String str){
-		return str.split("\n");
-	}
-	
-	public String array2str(String[] array){
-		String ret  = "";
-		for(int x= 0; x < array.length; x++){
-			ret += array[x] ;
-			if(x+1 < array.length){
-				ret += "\n";
-				
-			}
-		}
-		return ret;
-	}
-	
-	public String[] transpose(String[] array){
-		System.out.println(array[0].length());
-		String ret[] = new String[array[0].length()];
-		for(int x= 0; x < array[0].length(); x++){
-			ret[x] = "";
-			for(int y= 0; y < array.length; y++){
-				ret[x] += array[y].charAt(x) + "";
-			}
-		}
-		return ret;
 	}
 }
